@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sexualidad</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_sections">MainSectionsActivity</string>
+    <string name="inform">Informate</string>
+    <string name="learnmore">Aprende mas&#8230;</string>
+    <string name="news">NOTICIAS</string>
+    <string name="historys">HISTORIAS</string>
+    <string name="find">ENCUENTRA</string>
+    <string name="knowyou">Conocete</string>
+</resources>
