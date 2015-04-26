@@ -20,6 +20,10 @@
             android:name=".MainSectionsActivity"
             android:label="@string/title_activity_main_sections" >
         </activity>
+        <activity
+            android:name=".HistorysActivity"
+            android:label="@string/title_activity_historys" >
+        </activity>
     </application>
 
 </manifest>
