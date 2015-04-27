@@ -1,10 +1,12 @@
 package com.gorro.sexualidad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Callback;
@@ -48,7 +50,6 @@ public class MainSectionsActivity extends ActionBarActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_sections, menu);
@@ -66,5 +67,9 @@ public class MainSectionsActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendHistorys(View v){
+        startActivity(new Intent(MainSectionsActivity.this, HistorysActivity.class));
     }
 }
