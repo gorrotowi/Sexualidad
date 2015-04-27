@@ -25,10 +25,11 @@
 
         <ImageView
             android:id="@+id/imgsharehistory"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="end"
             android:src="@drawable/share"
+            android:layout_margin="10dp"
             android:contentDescription="@string/hello_world" />
 
     </LinearLayout>
