@@ -4,21 +4,33 @@
     android:layout_height="match_parent"
     tools:context="com.gorro.sexualidad.HistorysActivity">
 
+    <ImageView
+        android:id="@+id/imgHeaderHistory"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flexible_space_image_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/historys"
+        android:contentDescription="@string/hello_world" />
+
+    <View
+        android:id="@+id/list_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <com.github.ksoichiro.android.observablescrollview.ObservableListView
+        android:id="@+id/listHistorys"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:dividerHeight="10dp"
+        android:divider="@color/transparent"
+        android:scrollbars="none" />
+
     <include
         android:id="@+id/toolbarHistorys"
         layout="@layout/toolbar_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <ListView
-        android:id="@+id/listHistorys"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarHistorys"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:dividerHeight="10dp"
-        android:divider="@color/transparent">
-
-    </ListView>
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 
@@ -31,7 +32,7 @@ public class MainSectionsActivity extends ActionBarActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.header).into(imgHeader, new Callback() {
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.header).networkPolicy(NetworkPolicy.OFFLINE).into(imgHeader, new Callback() {
             @Override
             public void onSuccess() {
 
@@ -43,9 +44,9 @@ public class MainSectionsActivity extends ActionBarActivity {
             }
         });
 
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.news).into(imgNews);
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.historys).into(imgHistorys);
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).into(imgFind);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgNews);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.historys).networkPolicy(NetworkPolicy.OFFLINE).into(imgHistorys);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).networkPolicy(NetworkPolicy.OFFLINE).into(imgFind);
 
 
     }
