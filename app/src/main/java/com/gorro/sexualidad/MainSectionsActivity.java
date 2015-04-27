@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
@@ -32,18 +31,7 @@ public class MainSectionsActivity extends ActionBarActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.header).networkPolicy(NetworkPolicy.OFFLINE).into(imgHeader, new Callback() {
-            @Override
-            public void onSuccess() {
-
-            }
-
-            @Override
-            public void onError() {
-                imgHeader.setBackgroundColor(getResources().getColor(R.color.primary));
-            }
-        });
-
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.header).networkPolicy(NetworkPolicy.OFFLINE).into(imgHeader);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgNews);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.historys).networkPolicy(NetworkPolicy.OFFLINE).into(imgHistorys);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).networkPolicy(NetworkPolicy.OFFLINE).into(imgFind);
@@ -70,7 +58,7 @@ public class MainSectionsActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendHistorys(View v){
+    public void sendHistorys(View v) {
         startActivity(new Intent(MainSectionsActivity.this, HistorysActivity.class));
     }
 }
