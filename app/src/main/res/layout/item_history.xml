@@ -20,7 +20,7 @@
             android:id="@+id/txtHistoryCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:text="@string/loremipsum" />
 
         <ImageView
