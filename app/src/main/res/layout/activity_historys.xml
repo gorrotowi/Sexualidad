@@ -8,9 +8,9 @@
         android:id="@+id/imgHeaderHistory"
         android:layout_width="match_parent"
         android:layout_height="@dimen/flexible_space_image_height"
+        android:contentDescription="@string/hello_world"
         android:scaleType="centerCrop"
-        android:src="@drawable/historys"
-        android:contentDescription="@string/hello_world" />
+        android:src="@drawable/historys" />
 
     <View
         android:id="@+id/list_background"
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:dividerHeight="10dp"
         android:divider="@color/transparent"
+        android:dividerHeight="10dp"
         android:scrollbars="none" />
 
     <include

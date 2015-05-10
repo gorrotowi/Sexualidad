@@ -58,6 +58,10 @@ public class MainSectionsActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void sendNews(View v) {
+        startActivity(new Intent(MainSectionsActivity.this, NewsActivity.class));
+    }
+
     public void sendHistorys(View v) {
         startActivity(new Intent(MainSectionsActivity.this, HistorysActivity.class));
     }

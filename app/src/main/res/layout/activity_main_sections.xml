@@ -8,20 +8,20 @@
         android:id="@+id/headerSections"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <ImageView
             android:id="@+id/imgHeaderSections"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/hello_world" />
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/hello_world"
+            android:scaleType="centerCrop" />
 
         <include
             android:id="@+id/toolbarheaderSections"
@@ -33,25 +33,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/inform"
-            android:textSize="45sp"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginStart="50dp" />
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/inform"
+            android:textColor="@android:color/white"
+            android:textSize="45sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textColor="@android:color/white"
-            android:text="@string/learnmore"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin" />
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="@string/learnmore"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
     </RelativeLayout>
 
@@ -59,33 +59,34 @@
         android:id="@+id/listSections"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/headerSections"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/headerSections"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_weight="3"
+            android:onClick="sendNews">
 
             <ImageView
                 android:id="@+id/imgNews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/hello_world" />
+                android:contentDescription="@string/hello_world"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
+                android:layout_margin="30dp"
                 android:text="@string/news"
-                android:layout_margin="30dp" />
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
 
         </RelativeLayout>
 
@@ -99,16 +100,16 @@
                 android:id="@+id/imgHistorys"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/hello_world" />
+                android:contentDescription="@string/hello_world"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
+                android:layout_margin="30dp"
                 android:text="@string/historys"
-                android:layout_margin="30dp" />
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -120,16 +121,16 @@
                 android:id="@+id/imgFind"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/hello_world" />
+                android:contentDescription="@string/hello_world"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
+                android:layout_margin="30dp"
                 android:text="@string/find"
-                android:layout_margin="30dp" />
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
         </RelativeLayout>
 
     </LinearLayout>
