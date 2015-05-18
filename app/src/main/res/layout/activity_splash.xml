@@ -14,14 +14,14 @@
 
     <TextView
         android:text="@string/knowyou"
-        android:layout_width="200dp"
-        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="40sp"
+        android:paddingTop="300dp"
         android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
         android:background="@drawable/shape_btn_transparent"/>
 
 </RelativeLayout>

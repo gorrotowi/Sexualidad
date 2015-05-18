@@ -12,6 +12,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+import org.json.XML;
+
 
 public class NewsActivity extends ActionBarActivity {
 
@@ -30,7 +33,13 @@ public class NewsActivity extends ActionBarActivity {
             @Override
             public void onResponse(String response) {
                 Log.e("response rss", "-------------------------------------------------");
-                Log.e("response rss", response);
+//                Log.e("response rss", response);
+                try {
+                    JSONObject json = XML.toJSONObject("<?xml version=\"1.0\"?>"+response);
+                    Log.e("json", json.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Log.e("response rss", "-------------------------------------------------");
             }
         }, new Response.ErrorListener() {

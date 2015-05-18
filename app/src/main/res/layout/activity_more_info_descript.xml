@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gorro.sexualidad.MoreInfoDescriptActivity">
+
+    <ImageView
+        android:id="@+id/imgHeaderMoreInfoDescr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flexible_space_image_height"
+        android:contentDescription="@string/hello_world"
+        android:scaleType="centerCrop"
+        android:src="@drawable/header" />
+
+    <View
+        android:id="@+id/list_backgroundMoreInfoDescr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <com.github.ksoichiro.android.observablescrollview.ObservableGridView
+        android:id="@+id/listMoreInfoDesc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:divider="@color/transparent"
+        android:dividerHeight="10dp"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp" />
+
+    <include
+        android:id="@+id/toolbarMoreInfoDescr"
+        layout="@layout/toolbar_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/accent" />
+
+</RelativeLayout>

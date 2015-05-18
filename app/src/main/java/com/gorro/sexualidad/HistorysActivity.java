@@ -61,9 +61,6 @@ public class HistorysActivity extends ActionBarActivity implements ObservableScr
         contentView.post(new Runnable() {
             @Override
             public void run() {
-                // mListBackgroundView's should fill its parent vertically
-                // but the height of the content view is 0 on 'onCreate'.
-                // So we should get it with post().
                 mListBackgroundView.getLayoutParams().height = contentView.getHeight();
             }
         });

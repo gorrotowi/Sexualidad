@@ -21,6 +21,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/hello_world"
+            android:onClick="sendMoreInfo"
             android:scaleType="centerCrop" />
 
         <include

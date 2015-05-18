@@ -31,9 +31,9 @@ public class MainSectionsActivity extends ActionBarActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.header).networkPolicy(NetworkPolicy.OFFLINE).into(imgHeader);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).networkPolicy(NetworkPolicy.OFFLINE).into(imgHeader);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgNews);
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.historys).networkPolicy(NetworkPolicy.OFFLINE).into(imgHistorys);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgHistorys);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).networkPolicy(NetworkPolicy.OFFLINE).into(imgFind);
 
 
@@ -56,6 +56,10 @@ public class MainSectionsActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendMoreInfo(View v) {
+        startActivity(new Intent(MainSectionsActivity.this, MoreInfoActivity.class));
     }
 
     public void sendNews(View v) {
