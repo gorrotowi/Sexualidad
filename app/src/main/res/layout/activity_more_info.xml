@@ -10,7 +10,7 @@
         android:layout_height="@dimen/flexible_space_image_height"
         android:contentDescription="@string/hello_world"
         android:scaleType="centerCrop"
-        android:src="@drawable/header" />
+        android:src="@drawable/localize" />
 
     <View
         android:id="@+id/list_backgroundMoreInfo"
@@ -30,8 +30,8 @@
     <include
         android:id="@+id/toolbarMoreInfo"
         layout="@layout/toolbar_color"
-        android:background="@color/accent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/accent" />
 
 </RelativeLayout>

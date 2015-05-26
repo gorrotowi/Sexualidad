@@ -29,5 +29,5 @@ dependencies {
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':volley')
-    compile files('libs/json-20140107.jar')
+    compile files('libs/jsoup-1.8.2.jar')
 }

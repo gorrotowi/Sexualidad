@@ -46,7 +46,7 @@ public class AdapterMoreInfoDescr extends BaseAdapter {
 
     public class HolderView {
         ImageView img;
-        TextView txtV;
+        TextView txtV, txtVDesc;
     }
 
     @Override
@@ -59,6 +59,7 @@ public class AdapterMoreInfoDescr extends BaseAdapter {
             holderView = new HolderView();
             holderView.img = (ImageView) fila.findViewById(R.id.imgItemMoreInfoDescr);
             holderView.txtV = (TextView) fila.findViewById(R.id.txtItemMoreInfoDesc);
+            holderView.txtVDesc = (TextView) fila.findViewById(R.id.txtItemMoreInfoDescInf);
             fila.setTag(holderView);
         } else {
             holderView = (HolderView) fila.getTag();
@@ -67,6 +68,7 @@ public class AdapterMoreInfoDescr extends BaseAdapter {
         ItemMoreInfo item = data.get(position);
         holderView.img.setImageResource(item.getResource());
         holderView.txtV.setText(item.getTitle());
+        holderView.txtVDesc.setText(item.getDescrip());
 
         return fila;
     }

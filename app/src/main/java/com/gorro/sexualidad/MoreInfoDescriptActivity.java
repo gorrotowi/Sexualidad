@@ -3,12 +3,10 @@ package com.gorro.sexualidad;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.ImageView;
 
-import com.github.ksoichiro.android.observablescrollview.ObservableGridView;
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -22,10 +20,10 @@ import java.util.ArrayList;
 
 public class MoreInfoDescriptActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
 
-    ObservableGridView listHistorys;
+    ObservableListView listHistorys;
     AdapterMoreInfoDescr adapter;
     Toolbar toolbar;
-    private View mImageView;
+    private ImageView mImageView;
     private View mListBackgroundView;
     private int mParallaxImageHeight;
 
@@ -34,9 +32,12 @@ public class MoreInfoDescriptActivity extends ActionBarActivity implements Obser
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_info_descript);
 
-        listHistorys = (ObservableGridView) findViewById(R.id.listMoreInfoDesc);
-        mImageView = findViewById(R.id.imgHeaderMoreInfoDescr);
+        String title = getIntent().getExtras().getString("title", "");
+
+        listHistorys = (ObservableListView) findViewById(R.id.listMoreInfoDesc);
+        mImageView = (ImageView) findViewById(R.id.imgHeaderMoreInfoDescr);
         toolbar = (Toolbar) findViewById(R.id.toolbarMoreInfoDescr);
+        toolbar.setTitle(title);
         toolbar.setBackgroundColor(ScrollUtils.getColorWithAlpha(1, getResources().getColor(R.color.primary)));
 
         mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.parallax_image_height_thin);
@@ -49,8 +50,17 @@ public class MoreInfoDescriptActivity extends ActionBarActivity implements Obser
 
         paddingView.setClickable(true);
 
-//        listHistorys.addHeaderView(paddingView);
-        adapter = new AdapterMoreInfoDescr(MoreInfoDescriptActivity.this, R.layout.item_more_info_descr, getData());
+        listHistorys.addHeaderView(paddingView);
+
+        if (title.equals("Identidad")) {
+            adapter = new AdapterMoreInfoDescr(MoreInfoDescriptActivity.this, R.layout.item_more_info_descr, getDataIdentidad());
+            mImageView.setImageResource(R.drawable.identity);
+        } else {
+            adapter = new AdapterMoreInfoDescr(MoreInfoDescriptActivity.this, R.layout.item_more_info_descr, getDataOrientation());
+            mImageView.setImageResource(R.drawable.orientation);
+        }
+
+
         listHistorys.setAdapter(adapter);
 
         mListBackgroundView = findViewById(R.id.list_backgroundMoreInfoDescr);
@@ -67,43 +77,27 @@ public class MoreInfoDescriptActivity extends ActionBarActivity implements Obser
 
     }
 
-    private ArrayList<ItemMoreInfo> getData() {
+    private ArrayList<ItemMoreInfo> getDataIdentidad() {
         final ArrayList<ItemMoreInfo> item = new ArrayList<>();
-        item.add(new ItemMoreInfo(R.drawable.sexo, "Identidad"));
-        item.add(new ItemMoreInfo(R.drawable.genero, "Orientación"));
-        item.add(new ItemMoreInfo(R.drawable.sexo, "Identidad"));
-        item.add(new ItemMoreInfo(R.drawable.genero, "Orientación"));
-        item.add(new ItemMoreInfo(R.drawable.sexo, "Identidad"));
-        item.add(new ItemMoreInfo(R.drawable.genero, "Orientación"));
-        item.add(new ItemMoreInfo(R.drawable.sexo, "Identidad"));
-        item.add(new ItemMoreInfo(R.drawable.genero, "Orientación"));
-        item.add(new ItemMoreInfo(R.drawable.sexo, "Identidad"));
-        item.add(new ItemMoreInfo(R.drawable.genero, "Orientación"));
-        item.add(new ItemMoreInfo(R.drawable.sexo, "Identidad"));
-        item.add(new ItemMoreInfo(R.drawable.genero, "Orientación"));
+        item.add(new ItemMoreInfo(R.drawable.sexo, "Sexo", "Marcador biológico que te es asignado al nacer"));
+        item.add(new ItemMoreInfo(R.drawable.genero, "Género", "Expresión y rol en la sociedad modificable/variable basada en el sexo"));
+        item.add(new ItemMoreInfo(R.drawable.transgenero, "Transgénero", "Persona cuya identidad de género es diferente a su sexo"));
+        item.add(new ItemMoreInfo(R.drawable.cisgenero, "Cisgénero", "Persona cuya identidad de género es igual a su sexo"));
+        item.add(new ItemMoreInfo(R.drawable.fluidgen, "Género fluido", "Persona cuya identidad de género varia"));
+        item.add(new ItemMoreInfo(R.drawable.nogenero, "Sin género/Género no binario", "Persona cuyo género no entra en los estándares de mujer/hombre"));
+        item.add(new ItemMoreInfo(R.drawable.intersex, "Intersexo", "Persona que al nacer tiene variaciones de órganos genitales externos o internos que no pueden clasificarse. Usualmente se les realiza una operación para que crezcan con un género determinado"));
         return item;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_more_info_descript, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    private ArrayList<ItemMoreInfo> getDataOrientation() {
+        final ArrayList<ItemMoreInfo> item = new ArrayList<>();
+        item.add(new ItemMoreInfo(R.drawable.heteroflag, "Heterosexual", "Experimenta atracción romántica/sexual hacia el sexo opuesto"));
+        item.add(new ItemMoreInfo(R.drawable.gayflag, "Homosexual", "Experimenta atracción romántica/sexual hacia el mismo sexo"));
+        item.add(new ItemMoreInfo(R.drawable.biflag, "Bisexual", "Experimenta atracción romántica/sexual hacia dos sexos"));
+        item.add(new ItemMoreInfo(R.drawable.panflag, "Pansexual", "Experimenta atracción romántica/sexual hacia individuos sin importar sexo o género"));
+        item.add(new ItemMoreInfo(R.drawable.demiflag, "Demisexual", "Sólo experimenta atracción romántica/sexual después de formar un vínculo emocional"));
+        item.add(new ItemMoreInfo(R.drawable.asexualflag, "Asexual", "No experimenta atracción romántica o sexual"));
+        return item;
     }
 
     @Override

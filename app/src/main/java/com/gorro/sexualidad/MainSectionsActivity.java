@@ -32,9 +32,9 @@ public class MainSectionsActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
 
         Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).networkPolicy(NetworkPolicy.OFFLINE).into(imgHeader);
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgNews);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.informate).networkPolicy(NetworkPolicy.OFFLINE).into(imgNews);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgHistorys);
-        Picasso.with(MainSectionsActivity.this).load(R.drawable.localize).networkPolicy(NetworkPolicy.OFFLINE).into(imgFind);
+        Picasso.with(MainSectionsActivity.this).load(R.drawable.encuentra).networkPolicy(NetworkPolicy.OFFLINE).into(imgFind);
 
 
     }

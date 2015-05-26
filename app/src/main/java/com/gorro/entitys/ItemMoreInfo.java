@@ -7,10 +7,25 @@ public class ItemMoreInfo {
 
     int resource;
     String title;
+    String descrip;
 
     public ItemMoreInfo(int resource, String title) {
         this.resource = resource;
         this.title = title;
+    }
+
+    public ItemMoreInfo(int resource, String title, String descrip) {
+        this.resource = resource;
+        this.title = title;
+        this.descrip = descrip;
+    }
+
+    public String getDescrip() {
+        return descrip;
+    }
+
+    public void setDescrip(String descrip) {
+        this.descrip = descrip;
     }
 
     public int getResource() {

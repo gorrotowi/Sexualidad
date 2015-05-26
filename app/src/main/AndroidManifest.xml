@@ -37,10 +37,16 @@
         <activity
             android:name=".MoreInfoActivity"
             android:label="@string/title_activity_more_info" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainSectionsActivity" />
         </activity>
         <activity
             android:name=".MoreInfoDescriptActivity"
             android:label="@string/title_activity_more_info_descript" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MoreInfoActivity" />
         </activity>
     </application>
 
