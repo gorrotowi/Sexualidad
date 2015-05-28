@@ -10,4 +10,12 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="divider">#B6B6B6</color>
     <color name="black_transparent">#7d151515</color>
+    <color name="black_transparent_light">#5d151515</color>
+
+    <color name="backgroundgreen">#9CCC65</color>
+    <color name="backgroundcyan">#26C6DA</color>
+    <color name="backgroundred">#EF5350</color>
+    <color name="backgroundpurple">#AB47BC</color>
+    <color name="backgroundorange">#FFA726</color>
+
 </resources>

@@ -28,6 +28,7 @@ dependencies {
     compile 'com.xgc1986.android:parallaxpagertransformer:1.0.3'
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.0'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'org.sufficientlysecure:html-textview:1.1'
     compile project(':volley')
     compile files('libs/jsoup-1.8.2.jar')
 }

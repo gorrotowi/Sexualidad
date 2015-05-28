@@ -33,6 +33,9 @@
         <activity
             android:name=".NewsActivity"
             android:label="@string/title_activity_news" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainSectionsActivity" />
         </activity>
         <activity
             android:name=".MoreInfoActivity"
