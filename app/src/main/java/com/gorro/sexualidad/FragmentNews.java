@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -42,6 +41,9 @@ public class FragmentNews extends Fragment {
         txtContent.setHtmlFromString(getArguments().getString("content"), false);
         if (getArguments().getString("imagebackground").isEmpty()) {
             image.setBackgroundColor(getArguments().getInt("color"));
+            txtTitle.setTextColor(getResources().getColor(R.color.white_text));
+            txtContent.setTextColor(getResources().getColor(R.color.white_text));
+            layoutContainer.setBackground(getResources().getDrawable(R.drawable.border_white));
         } else {
             Picasso.with(getActivity()).load(getArguments().getString("imagebackground")).into(image);
             layoutContainer.setBackground(getResources().getDrawable(R.drawable.shape_btn_transparent));

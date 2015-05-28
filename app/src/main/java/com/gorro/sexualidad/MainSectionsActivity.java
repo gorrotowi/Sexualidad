@@ -1,6 +1,7 @@
 package com.gorro.sexualidad;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +51,8 @@ public class MainSectionsActivity extends ActionBarActivity {
 
         switch (item.getItemId()) {
             case R.id.action_facebook:
+                //https://www.facebook.com/EduSexMexico
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://www.facebook.com/EduSexMexico")));
                 break;
             case R.id.action_twitter:
                 break;
