@@ -1,5 +1,6 @@
 package com.gorro.sexualidad;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -28,6 +29,7 @@ public class NewsActivity extends ActionBarActivity {
     ViewPager viewPager;
     AdapterNews adapterNews;
     Toolbar toolbar;
+    ProgressDialog progressDialog;
     ParallaxPagerTransformer parallaxPagerTransformer;
 
     RequestQueue rq;
@@ -42,11 +44,14 @@ public class NewsActivity extends ActionBarActivity {
         viewPager = (ViewPager) findViewById(R.id.pagerNews);
         toolbar = (Toolbar) findViewById(R.id.toolbarNews);
         parallaxPagerTransformer = new ParallaxPagerTransformer((R.id.imgNewBackground));
+        progressDialog = new ProgressDialog(NewsActivity.this);
         adapterNews = new AdapterNews(getSupportFragmentManager());
 
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progressDialog.setMessage("Espera un momento por favor");
 
 //        parallaxPagerTransformer.setBorder(30);
 
@@ -62,10 +67,12 @@ public class NewsActivity extends ActionBarActivity {
     }
 
     private void makePetition() {
+        progressDialog.show();
         jsonRequest = new JsonObjectRequest(Request.Method.GET, url, new JSONObject(), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 //                Log.e("json", response.toString());
+                progressDialog.dismiss();
                 try {
                     JSONArray jsonArray = response.getJSONArray("posts");
 
@@ -158,6 +165,7 @@ public class NewsActivity extends ActionBarActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(NewsActivity.this, "Verifica tu conexión a internet o intenta nuevamente", Toast.LENGTH_SHORT).show();
                 finish();
             }

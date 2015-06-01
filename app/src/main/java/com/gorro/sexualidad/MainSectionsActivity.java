@@ -37,7 +37,6 @@ public class MainSectionsActivity extends ActionBarActivity {
         Picasso.with(MainSectionsActivity.this).load(R.drawable.news).networkPolicy(NetworkPolicy.OFFLINE).into(imgHistorys);
         Picasso.with(MainSectionsActivity.this).load(R.drawable.encuentra).networkPolicy(NetworkPolicy.OFFLINE).into(imgFind);
 
-
     }
 
     @Override
@@ -51,10 +50,10 @@ public class MainSectionsActivity extends ActionBarActivity {
 
         switch (item.getItemId()) {
             case R.id.action_facebook:
-                //https://www.facebook.com/EduSexMexico
                 startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://www.facebook.com/EduSexMexico")));
                 break;
             case R.id.action_twitter:
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://twitter.com/EduxSex")));
                 break;
         }
 

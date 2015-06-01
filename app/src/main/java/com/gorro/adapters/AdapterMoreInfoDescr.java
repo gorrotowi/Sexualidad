@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.gorro.entitys.ItemMoreInfo;
 import com.gorro.sexualidad.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -66,7 +67,8 @@ public class AdapterMoreInfoDescr extends BaseAdapter {
         }
 
         ItemMoreInfo item = data.get(position);
-        holderView.img.setImageResource(item.getResource());
+//        holderView.img.setImageResource(item.getResource());
+        Picasso.with(context).load(item.getResource()).into(holderView.img);
         holderView.txtV.setText(item.getTitle());
         holderView.txtVDesc.setText(item.getDescrip());
 
