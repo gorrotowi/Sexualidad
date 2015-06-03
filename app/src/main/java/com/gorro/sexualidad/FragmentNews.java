@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class FragmentNews extends Fragment {
 
     ImageView image;
     TextView txtTitle, txtMore;
-    HtmlTextView txtContent;
+    TextView txtContent;
     ScrollView layoutContainer;
     AdapterNews adapterNews;
 
@@ -33,12 +34,13 @@ public class FragmentNews extends Fragment {
 
         image = (ImageView) viewRoot.findViewById(R.id.imgNewBackground);
         txtTitle = (TextView) viewRoot.findViewById(R.id.txtNewTitle);
-        txtContent = (HtmlTextView) viewRoot.findViewById(R.id.txtNewContent);
+        txtContent = (TextView) viewRoot.findViewById(R.id.txtNewContent);
         txtMore = (TextView) viewRoot.findViewById(R.id.txtNewMoreContent);
         layoutContainer = (ScrollView) viewRoot.findViewById(R.id.relativeNewContainer);
 
         txtTitle.setText(getArguments().getString("title") + "");
-        txtContent.setHtmlFromString(getArguments().getString("content"), false);
+//        txtContent.setHtmlFromString(getArguments().getString("content"), false);
+        txtContent.setText(Html.fromHtml(getArguments().getString("content")));
         if (getArguments().getString("imagebackground").isEmpty()) {
             image.setBackgroundColor(getArguments().getInt("color"));
             txtTitle.setTextColor(getResources().getColor(R.color.white_text));
