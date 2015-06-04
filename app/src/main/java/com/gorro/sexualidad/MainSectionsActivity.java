@@ -71,4 +71,8 @@ public class MainSectionsActivity extends ActionBarActivity {
     public void sendHistorys(View v) {
         startActivity(new Intent(MainSectionsActivity.this, HistorysActivity.class));
     }
+
+    public void sendMaps(View v) {
+        startActivity(new Intent(MainSectionsActivity.this, FindActivity.class));
+    }
 }
