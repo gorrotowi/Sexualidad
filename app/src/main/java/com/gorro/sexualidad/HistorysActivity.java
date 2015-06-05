@@ -68,6 +68,21 @@ public class HistorysActivity extends ActionBarActivity implements ObservableScr
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        new MaterialDialog.Builder(HistorysActivity.this)
+                .title("Sentimos el inconveniente")
+                .content("Esta sección se encuentra en construcción por ahora, sentimos la molestia :(")
+                .positiveText("ok")
+                .callback(new MaterialDialog.ButtonCallback() {
+                    @Override
+                    public void onPositive(MaterialDialog dialog) {
+                        super.onPositive(dialog);
+                        HistorysActivity.this.finish();
+                    }
+                })
+                .build()
+                .show();
+
+
     }
 
     private ArrayList<ItemHistory> getData() {
