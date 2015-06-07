@@ -68,14 +68,14 @@
         </activity>
 
         <!-- Release -->
-        <!--<meta-data-->
-        <!--android:name="com.google.android.maps.v2.API_KEY"-->
-        <!--android:value="AIzaSyBO9zq-7RPPgkYSJtsyiH5r7tpVsEDvN30" />-->
-
-        <!-- Debug-->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDuHRI3lG68q8-H5Fw7-E9bCWp_UXbpfBE" />
+            android:value="AIzaSyBO9zq-7RPPgkYSJtsyiH5r7tpVsEDvN30" />
+
+        <!-- Debug-->
+        <!--<meta-data-->
+            <!--android:name="com.google.android.maps.v2.API_KEY"-->
+            <!--android:value="AIzaSyDuHRI3lG68q8-H5Fw7-E9bCWp_UXbpfBE" />-->
 
         <meta-data
             android:name="com.google.android.gms.version"
