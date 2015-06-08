@@ -18,8 +18,14 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.gorro.adapters.AdapterHistory;
 import com.gorro.entitys.ItemHistory;
 import com.nineoldandroids.view.ViewHelper;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HistorysActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
@@ -52,8 +58,9 @@ public class HistorysActivity extends ActionBarActivity implements ObservableScr
         paddingView.setClickable(true);
 
         listHistorys.addHeaderView(paddingView);
-        adapter = new AdapterHistory(HistorysActivity.this, R.layout.item_history, getData());
-        listHistorys.setAdapter(adapter);
+        makePetition();
+//        adapter = new AdapterHistory(HistorysActivity.this, R.layout.item_history, getData());
+//        listHistorys.setAdapter(adapter);
 //        toolbar.setBackground(getResources().getDrawable(R.drawable.historys));
 
         mListBackgroundView = findViewById(R.id.list_background);
@@ -68,33 +75,25 @@ public class HistorysActivity extends ActionBarActivity implements ObservableScr
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        new MaterialDialog.Builder(HistorysActivity.this)
-                .title("Sentimos el inconveniente")
-                .content("Esta sección se encuentra en construcción por ahora, sentimos la molestia :(")
-                .positiveText("ok")
-                .callback(new MaterialDialog.ButtonCallback() {
-                    @Override
-                    public void onPositive(MaterialDialog dialog) {
-                        super.onPositive(dialog);
-                        HistorysActivity.this.finish();
-                    }
-                })
-                .build()
-                .show();
-
-
     }
 
-    private ArrayList<ItemHistory> getData() {
+    private void makePetition() {
+
+        ParseQuery<ParseObject> parseHistorys = ParseQuery.getQuery("historia");
+        parseHistorys.setLimit(15);
+        parseHistorys.orderByDescending("createdAt");
         final ArrayList<ItemHistory> item = new ArrayList<>();
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        item.add(new ItemHistory(getString(R.string.loremipsum)));
-        return item;
+        parseHistorys.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                for (int i = 0; i < list.size(); i++) {
+                    item.add(new ItemHistory(list.get(i).getString("history")));
+                }
+                adapter = new AdapterHistory(HistorysActivity.this, R.layout.item_history, item);
+                listHistorys.setAdapter(adapter);
+            }
+        });
+
     }
 
     @Override
@@ -145,7 +144,16 @@ public class HistorysActivity extends ActionBarActivity implements ObservableScr
     }
 
     private void sendHistory(String history) {
-        Toast.makeText(HistorysActivity.this, "Tu historia ha sido enviada", Toast.LENGTH_SHORT).show();
+        ParseObject testObject = new ParseObject("historia");
+        testObject.put("history", history);
+        testObject.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                Toast.makeText(HistorysActivity.this, "Tu historia ha sido enviada", Toast.LENGTH_SHORT).show();
+                makePetition();
+            }
+        });
+
     }
 
     @Override

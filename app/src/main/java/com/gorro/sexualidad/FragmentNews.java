@@ -16,8 +16,6 @@ import android.widget.TextView;
 import com.gorro.adapters.AdapterNews;
 import com.squareup.picasso.Picasso;
 
-import org.sufficientlysecure.htmltextview.HtmlTextView;
-
 
 public class FragmentNews extends Fragment {
 
@@ -47,7 +45,7 @@ public class FragmentNews extends Fragment {
             txtContent.setTextColor(getResources().getColor(R.color.white_text));
             layoutContainer.setBackground(getResources().getDrawable(R.drawable.border_white));
         } else {
-            Picasso.with(getActivity()).load(getArguments().getString("imagebackground")).into(image);
+            Picasso.with(getActivity()).load("http://ed-usex.rhcloud.com/" + getArguments().getString("imagebackground")).into(image);
             layoutContainer.setBackground(getResources().getDrawable(R.drawable.shape_btn_transparent));
         }
 
